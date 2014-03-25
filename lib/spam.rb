@@ -68,7 +68,7 @@ class Spam
 			io = File.open(@spam_file_path,'w')
 			io.puts JSON.pretty_generate(@spams)
 			io.close
-		
+
 			json_mkdir(@real_file_path)
 			io = File.open(@real_file_path,'w')
 			io.puts JSON.pretty_generate(@reals)
@@ -81,7 +81,7 @@ class Spam
 	def judgment(check_str = "")
 		return @bayes.classify(@wakati.parse(check_str)).to_s
 	end
-	
+
 	private
 	def json_mkdir(file_path)
 		dir = file_path
@@ -91,7 +91,7 @@ class Spam
 		end
 	end
 	def to_spam(str = "")
-		@spams[str] = 1 
+		@spams[str] = 1
 		return
 	end
 	def to_real(str = "")
